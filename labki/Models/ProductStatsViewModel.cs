@@ -1,7 +1,11 @@
+using System;
 
-public class ProductStatsViewModel
+namespace labki.Models
 {
-    public int NameLength { get; set; }
-    public int DescriptionLength { get; set; }
+    public class ProductStatsViewModel
+    {
+        public int NameLength { get; set; }
+        public int DescriptionLength { get; set; }
 
+    }
 }

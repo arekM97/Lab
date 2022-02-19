@@ -6,24 +6,28 @@ using System.Threading.Tasks;
 using labki.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-public class ProductsController : Controller
+
+namespace labki.Controllers
 {
-    [HttpGet]
-    public IActionResult Index()
+    public class ProductsController : Controller
     {
-        return View();
-    }
-    [HttpPost]
-    public IActionResult Add(ProductModel product)
-    {
-        var viewModel = new ProductStatsViewModel
+        [HttpGet]
+        public IActionResult Index()
         {
-            NameLength = product.Name.Length,
-            DescriptionLength = product.Description.Length,
-        };
-        return View(viewModel);
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Add(ProductModel product)
+        {
+            var viewModel = new ProductStatsViewModel
+            {
+                NameLength = product.Name.Length,
+                DescriptionLength = product.Description.Length,
+            };
+            return View(viewModel);
+        }
+
+
+
     }
-
-
-
 }

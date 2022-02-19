@@ -7,12 +7,15 @@ using labki.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-[Route("api/products")]
-public class ProductsApiController : ControllerBase
+namespace labki.Controllers
 {
-    [HttpPost]
-    public IActionResult Add(ProductModel product)
+    [Route("api/products")]
+    public class ProductsApiController : ControllerBase
     {
-        return Ok();
+        [HttpPost]
+        public IActionResult Add(ProductModel product)
+        {
+            return Ok();
+        }
     }
 }

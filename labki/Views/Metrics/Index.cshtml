@@ -1,0 +1,28 @@
+﻿@model IEnumerable<labki.Services.EndpointStats>
+
+<h2>Metrics</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>HTTP  method</th>
+            <th>Path</th>
+            <th>Requested count</th>
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var endpoint in Model)
+        { 
+        <tr>
+            <td>@endpoint.HttpMethod'</td>
+            <td>@endpoint.RequestUrl</td>
+            <td>@endpoint.RequestsCount</td>
+        </tr>
+        }
+
+    </tbody>
+
+
+</table>

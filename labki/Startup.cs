@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using labki.Database;
+using labki.Middleware;
+using labki.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,11 +31,16 @@ namespace labki
             services.AddDbContext<AppDbContext>(
             config => config.UseSqlServer(Configuration.GetConnectionString("Application"))
             );
+
+            services.AddScoped<IProductService, ProductService>();
+            services.AddSingleton<IMetricsCollector, MetricsCollector>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseMiddleware<CollectMetricsMiddleware>();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

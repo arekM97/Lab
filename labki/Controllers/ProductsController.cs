@@ -3,31 +3,50 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using labki.Database;
+using labki.Entities;
 using labki.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace labki.Controllers
 {
     public class ProductsController : Controller
     {
-        [HttpGet]
+        private readonly AppDbContext _dbContext;
+        public ProductsController(AppDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Add(ProductModel product)
+        public async Task<IActionResult> Add(ProductModel product)
         {
-            var viewModel = new ProductStatsViewModel
+            var entity = new ProductEntity
             {
-                NameLength = product.Name.Length,
-                DescriptionLength = product.Description.Length,
+                Name= product.Name,
+                Description = product.Description,
+                IsVisible = product.IsVisible,
             };
-            return View(viewModel);
+            await _dbContext.AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
+            return View();
         }
-
-
-
+        [HttpGet]
+        public async Task<IActionResult> List(string name)
+        {
+            IQueryable<ProductEntity> productsQuery = _dbContext.Products;
+            if (!string.IsNullOrEmpty(name))
+            {
+                productsQuery = productsQuery.Where(x => x.Name.Contains(name));
+            }
+            var products = await productsQuery.ToListAsync();
+            return View(products);
+        }
     }
 }

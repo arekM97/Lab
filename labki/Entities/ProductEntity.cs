@@ -1,5 +1,7 @@
 
 
+using Microsoft.AspNetCore.Identity;
+
 namespace labki.Entities
 {
     public class ProductEntity
@@ -8,5 +10,7 @@ namespace labki.Entities
         public string Name { get; set; }
         public string Description { get; set; }
         public bool IsVisible { get; set; }
+
+        public IdentityUser Owner { get; set; } //dane usera, który zrobi³ wpis
     }
 }

@@ -4,11 +4,13 @@ using labki.Database;
 using labki.Entities;
 using labki.Models;
 using labki.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace labki.Controllers
 {
+    [Authorize]
     public class ProductsController : Controller
     {
         private readonly IProductService _productService;
@@ -19,7 +21,7 @@ namespace labki.Controllers
         {
             _productService = productService;
         }
-
+       
         public IActionResult Index()
         {
             return View();
@@ -39,6 +41,7 @@ namespace labki.Controllers
             await _productService.Add(product);
             return View();
         }
+        
         [HttpGet]
         public async Task<IActionResult> List(string name)
         {

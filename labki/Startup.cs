@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using labki.Database;
+using labki.Hubs;
 using labki.Middleware;
 using labki.Services;
 using Microsoft.AspNetCore.Builder;
@@ -30,14 +31,16 @@ namespace labki
             services.AddControllersWithViews();
 
             services.AddDbContext<AppDbContext>(
-            config => config.UseSqlServer(Configuration.GetConnectionString("Application"))
-            );
+            config => config.UseSqlServer(Configuration.GetConnectionString("Application")));
 
             services.AddScoped<IProductService, ProductService>();
             services.AddSingleton<IMetricsCollector, MetricsCollector>();
 
-            services.AddDefaultIdentity<IdentityUser>()
-            .AddEntityFrameworkStores<AppDbContext>();
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddSingleton<IChatMessagesRepository, ChatMessagesRepository>();
+
+            services.AddSignalR();
 
         }
 
@@ -68,6 +71,8 @@ namespace labki
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                endpoints.MapHub<ChatHub>("/chat/hub");
             });
 
 

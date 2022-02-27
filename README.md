@@ -37,5 +37,16 @@ $ dotnet ef database update
 
 ```
 
+# Działanie aplikacji - strona główna
 
 
+![1](https://user-images.githubusercontent.com/91375599/155885642-20b37914-107e-472d-a147-4a02f8077942.PNG)
+
+
+# Działanie aplikacji - lista urządzeń
+
+![2](https://user-images.githubusercontent.com/91375599/155885648-e9002646-59a3-45fe-90b7-ac5eb79c2666.PNG)
+
+# Działanie aplikacji - wykres
+
+![3](https://user-images.githubusercontent.com/91375599/155885653-a7bac138-a9cd-4e96-8240-53333df0a581.png)

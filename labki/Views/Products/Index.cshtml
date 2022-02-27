@@ -5,18 +5,18 @@
 
 <form method="POST" asp-action="Add">
     <div class="form-group">
-        <label asp-for="Name">Nazwa</label>
+        <label asp-for="Name">Name</label>
         <input asp-for="Name" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Description">Opis usterek</label>
+        <label asp-for="Description">Fault description</label>
         <input asp-for="Description" class="form-control" />
     </div>
 
     <div class="form-check">
         <input asp-for="IsGood" class="form-check-input" />
-        <label asp-for="IsGood" class="form-check-label">Element jest sprawny</label>
+        <label asp-for="IsGood" class="form-check-label">Device is functional</label>
     </div>
 
     <div class="form-group">

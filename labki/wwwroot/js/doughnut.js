@@ -12,7 +12,7 @@ $(document).ready(function () {
     var myLineChart = new Chart(ctx, {
         type: 'doughnut',
         data: {
-            labels: ["Dobry", "Zły"],
+            labels: ["Good", "Bad"],
             datasets: [{
                 data: [numOne, numTwo],
                 backgroundColor: ["rgba(100, 255, 0, 0.5)", "rgba(255, 0, 0, 0.5)"]

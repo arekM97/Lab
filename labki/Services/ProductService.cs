@@ -41,10 +41,10 @@ namespace labki.Services
         }
         public async Task<IEnumerable<ProductEntity>> GetAll(string name)
         {
-            var currentUser = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
+           // var currentUser = await _userManager.GetUserAsync(_httpContextAccessor.HttpContext.User);
 
             IQueryable<ProductEntity> productsQuery = _dbContext.Products;
-            productsQuery = productsQuery.Where(x => x.Owner == currentUser);
+          //  productsQuery = productsQuery.Where(x => x.Owner == currentUser);
 
             if (!string.IsNullOrEmpty(name))
             {

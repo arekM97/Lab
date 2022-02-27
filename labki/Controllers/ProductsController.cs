@@ -54,5 +54,12 @@ namespace labki.Controllers
             var products = await _productService.GetAll(name);
             return View(products);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> State(string name)
+        {
+            var products = await _productService.GetAll(name);
+            return View(products);
+        }
     }
 }

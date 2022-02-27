@@ -1,26 +1,26 @@
 @model ProductModel
-
-<h1>A new form</h1>
+    <meta charset="utf-8">
+<h1>Dodaj element</h1>
 
 
 <form method="POST" asp-action="Add">
     <div class="form-group">
-        <label asp-for="Name">Item name</label>
+        <label asp-for="Name">Nazwa</label>
         <input asp-for="Name" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Description">Description</label>
+        <label asp-for="Description">Opis usterek</label>
         <input asp-for="Description" class="form-control" />
     </div>
 
     <div class="form-check">
         <input asp-for="IsVisible" class="form-check-input" />
-        <label asp-for="IsVisible" class="form-check-label">Item visible?</label>
+        <label asp-for="IsVisible" class="form-check-label">Element jest sprawny</label>
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Add new item" />
+        <input type="submit" value="Dodaj do listy" />
     </div>
 
 </form>

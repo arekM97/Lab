@@ -39,9 +39,11 @@ $ dotnet ef database update
 
 # Działanie aplikacji - strona główna
 
-
 ![1](https://user-images.githubusercontent.com/91375599/155885642-20b37914-107e-472d-a147-4a02f8077942.PNG)
 
+# Działanie aplikacji - dodawanie oględzin
+
+![4](https://user-images.githubusercontent.com/91375599/155886838-c9d43e82-dbb0-4fca-999e-59bcebf8e3df.PNG)
 
 # Działanie aplikacji - lista urządzeń
 

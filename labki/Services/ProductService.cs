@@ -33,7 +33,7 @@ namespace labki.Services
             {
                 Name = product.Name,
                 Description = product.Description,
-                IsVisible = product.IsVisible,
+                IsGood = product.IsGood,
                 Owner = currentUser,
             };
             await _dbContext.AddAsync(entity);

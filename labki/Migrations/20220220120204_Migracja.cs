@@ -14,7 +14,7 @@ namespace labki.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IsVisible = table.Column<bool>(type: "bit", nullable: false)
+                    IsGood = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {

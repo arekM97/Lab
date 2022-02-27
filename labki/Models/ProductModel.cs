@@ -6,6 +6,6 @@ namespace labki.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
-        public bool IsVisible { get; set; }
+        public bool IsGood { get; set; }
     }
 }
